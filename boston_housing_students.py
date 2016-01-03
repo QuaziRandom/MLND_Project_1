@@ -7,10 +7,8 @@ import numpy as np
 import pylab as pl
 from sklearn import datasets
 from sklearn.tree import DecisionTreeRegressor
-
-################################
-### ADD EXTRA LIBRARIES HERE ###
-################################
+from sklearn.metrics import mean_absolute_error
+#from sklearn.metrics import mean_squared_error
 
 
 def load_data():
@@ -33,49 +31,16 @@ def explore_city_data(city_data):
 
 	# Number of features
 	number_of_features = housing_features.shape[1]
-
-#        # Some attributes of each feature of the data
-#        print "Feature-wise attributes:"
-#        for i in housing_feature_headers:
-#            print "\t", i,
-#        print "\tTARGET"
-#        
-#	# Minimum value for each feature
-#        print "Min\t",
-#        for i in range(number_of_features):
-#            print housing_features[:, i].min(), "\t",
-#        print housing_prices.min()
-#	
-#	# Maximum value for each feature
-#        print "Max\t",
-#        for i in range(number_of_features):
-#            print housing_features[:, i].max(), "\t",
-#        print housing_prices.max()
-#
-#	# Calculate mean for each feature
-#        print "Mean\t",
-#        for i in range(number_of_features):
-#            print housing_features[:, i].mean(), "\t",
-#        print housing_prices.mean()
-#
-#	# Calculate median for each feature
-#        print "Median\t",
-#        for i in range(number_of_features):
-#            print np.median(housing_features[:, i]), "\t",
-#        print np.median(housing_prices)
-#
-#	# Calculate standard deviation for each feature
-#        print "Std. Dev.\t",
-#        for i in range(number_of_features):
-#            print housing_features[:, i].std(), "\t",
-#        print housing_prices.std()
 	
+        # Compile feature headers including target into an array
         feature_headers = np.empty(number_of_features+1, dtype='S7')
         feature_headers[:-1] = housing_feature_headers
         feature_headers[-1] = "TARGET"
 
+        # Compile attribute headers (stuff to be explored) in an array
         attribute_headers = np.array(["0:MIN", "1:MAX", "2:MEAN", "3:MEDIAN", "4:STD. DEV."])
         
+        # Compile all the attributes-per-feature in an array
         feature_wise_attributes_data = np.zeros([5, number_of_features+1])
         
         # Calculate min of each feature
@@ -98,23 +63,23 @@ def explore_city_data(city_data):
         feature_wise_attributes_data[4,:-1] = np.std(housing_features, axis=0)
         feature_wise_attributes_data[4, -1] = np.std(housing_prices)
 
-        return_value = datasets.base.Bunch(
+        explored_data = datasets.base.Bunch(
                                             data_size=data_size, 
                                             number_of_features=number_of_features,
                                             feature_headers=feature_headers,
                                             attribute_headers=attribute_headers,
                                             feature_wise_attributes_data=feature_wise_attributes_data )
-        return return_value
+        return explored_data
+
 
 def performance_metric(label, prediction):
 	'''Calculate and return the appropriate performance metric.'''
 
-	###################################
-	### Step 2. YOUR CODE GOES HERE ###
-	###################################
-
 	# http://scikit-learn.org/stable/modules/classes.html#sklearn-metrics-metrics
-	pass
+	
+	# Have a simple performance metric for now. Change it later, if requred.
+	error_loss = mean_absolute_error(label, prediction)
+        return error_loss
 
 
 def split_data(city_data):
@@ -122,12 +87,23 @@ def split_data(city_data):
 
 	# Get the features and labels from the Boston housing data
 	X, y = city_data.data, city_data.target
+        size_of_data = city_data.data.shape[0]
+        
+        # Create an array containing random indices
+        # np.random should have some kind of time based seed by default
+        index_array = np.arange(size_of_data)
+        np.random.shuffle(index_array)
 
-	###################################
-	### Step 3. YOUR CODE GOES HERE ###
-	###################################
+        # Specify ratio of train:test division
+        ratio_of_train_to_test = 0.8
 
-	#return X_train, y_train, X_test, y_test
+        # Split the data
+        X_train = city_data.data[index_array[:size_of_data*ratio_of_train_to_test]]
+        y_train = city_data.target[index_array[:size_of_data*ratio_of_train_to_test]]
+        X_test = city_data.data[index_array[size_of_data*ratio_of_train_to_test:]]
+        y_test = city_data.target[index_array[size_of_data*ratio_of_train_to_test:]]
+
+        return X_train, y_train, X_test, y_test
 
 
 def learning_curve(depth, X_train, y_train, X_test, y_test):
@@ -251,19 +227,22 @@ def main():
 	city_data = load_data()
 
 	# Explore the data
-	feature_data = explore_city_data(city_data)
-        print feature_data
+	data_statistics = explore_city_data(city_data)
+        #print data_statistics
 
-#	# Training/Test dataset split
-#	X_train, y_train, X_test, y_test = split_data(city_data)
-#
-#	# Learning Curve Graphs
-#	max_depths = [1,2,3,4,5,6,7,8,9,10]
-#	for max_depth in max_depths:
-#		learning_curve(max_depth, X_train, y_train, X_test, y_test)
-#
-#	# Model Complexity Graph
-#	model_complexity(X_train, y_train, X_test, y_test)
+	# Training/Test dataset split
+	X_train, y_train, X_test, y_test = split_data(city_data)
+
+	# Close all previous session's plots
+	pl.close('all')
+
+	# Learning Curve Graphs
+	max_depths = [1,2,3,4,5,6,7,8,9,10]
+	for max_depth in max_depths:
+		learning_curve(max_depth, X_train, y_train, X_test, y_test)
+
+	# Model Complexity Graph
+	model_complexity(X_train, y_train, X_test, y_test)
 #
 #	# Tune and predict Model
 #	fit_predict_model(city_data)
