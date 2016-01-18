@@ -8,7 +8,7 @@ import pylab as pl
 from sklearn import datasets, grid_search
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import median_absolute_error, make_scorer
-
+import tabulate as tb
 
 def load_data():
     '''Load the Boston dataset.'''
@@ -69,6 +69,13 @@ def explore_city_data(city_data):
                                         attribute_headers=attribute_headers,
                                         feature_wise_attributes_data=feature_wise_attributes_data )
     return explored_data
+
+def tabulate_explored_data(explored_data):
+    data = np.concatenate((explored_data.attribute_headers.reshape(1,-1),
+                           explored_data.feature_wise_attributes_data.transpose()))
+    data = data.transpose()
+    print "Data statistics:"
+    print(tb.tabulate(data, headers=explored_data.feature_headers.tolist(),tablefmt="grid"))
 
 
 def performance_metric(label, prediction):
@@ -206,9 +213,7 @@ def fit_predict_model(city_data):
     # Fit the learner to the training data
     print "Final Model: "
     print reg.fit(X, y)
-    print "best_estimator_ =", reg.best_estimator_
-    print "best_score_  =", reg.best_score_ 
-    print "best_params_ =", reg.best_params_
+    print "Optimum Max Depth with GridSearch =", reg.best_params_['max_depth']
     
     # Use the model to predict the output of a particular sample
     x = [11.95, 0.00, 18.100, 0, 0.6590, 5.6090, 90.00, 1.385, 24, 680.0, 20.20, 332.09, 12.13]
@@ -228,7 +233,7 @@ def main():
 
     # Explore the data
     data_statistics = explore_city_data(city_data)
-    #print data_statistics
+    tabulate_explored_data(data_statistics)
 
     # Training/Test dataset split
     X_train, y_train, X_test, y_test = split_data(city_data)
