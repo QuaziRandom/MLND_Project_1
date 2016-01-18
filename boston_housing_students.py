@@ -221,6 +221,9 @@ def fit_predict_model(city_data):
     y = reg.predict(x_arr)
     print "House: " + str(x)
     print "Prediction: " + str(y)
+
+    # Return the prediction, if needed
+    return y
     
 
 def main():
