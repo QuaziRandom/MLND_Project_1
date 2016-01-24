@@ -37,7 +37,7 @@ def explore_city_data(city_data):
     feature_headers[-1] = "TARGET"
 
     # Compile attribute headers (stuff to be explored) in an array
-    attribute_headers = np.array(["0:MIN", "1:MAX", "2:MEAN", "3:MEDIAN", "4:STD. DEV."])
+    attribute_headers = np.array(["MIN", "MAX", "AVG", "MED", "STD"])
     
     # Compile all the attributes-per-feature in an array
     feature_wise_attributes_data = np.zeros([5, number_of_features+1])
