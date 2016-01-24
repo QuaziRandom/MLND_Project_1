@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  24 JAN 2016 21:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  25 JAN 2016 03:06
 entering extended mode
 **./report.tex
 (report.tex
@@ -392,7 +392,6 @@ File: example_decision_tree_error_graph_depth_9.png Graphic file (type png)
 Package pdftex.def Info: example_decision_tree_error_graph_depth_9.png used on 
 input line 87.
 (pdftex.def)             Requested size: 289.07928pt x 215.72542pt.
- [2 <./example_decision_tree_error_graph_depth_9.png>]
 \openout5 = `report.pyg'.
 
 
@@ -423,38 +422,44 @@ Overfull \hbox (2.55078pt too wide) in paragraph at lines 94--95
 /cmr/m/it/10 es-ti-ma-tor \OT1/cmr/m/n/10 ([]) is used. []
  []
 
+[2]
 \openout5 = `report.pyg'.
 
 
 (_minted-report/74C4D40A96FA025D475CE89FB94A9A8365B7C2BF1FA8BF57B0FE6E88B10B377
 4.pygtex)
-<decision_tree_error_graph_depth_1.png, id=22, 578.16pt x 431.4519pt>
+<decision_tree_error_graph_depth_1.png, id=21, 578.16pt x 431.4519pt>
 File: decision_tree_error_graph_depth_1.png Graphic file (type png)
 
 <use decision_tree_error_graph_depth_1.png>
 Package pdftex.def Info: decision_tree_error_graph_depth_1.png used on input li
 ne 101.
-(pdftex.def)             Requested size: 187.89914pt x 140.2202pt.
+(pdftex.def)             Requested size: 211.38832pt x 157.74525pt.
 
-<decision_tree_error_graph_depth_10.png, id=23, 578.16pt x 431.4519pt>
+<decision_tree_error_graph_depth_10.png, id=22, 578.16pt x 431.4519pt>
 File: decision_tree_error_graph_depth_10.png Graphic file (type png)
 
 <use decision_tree_error_graph_depth_10.png>
 Package pdftex.def Info: decision_tree_error_graph_depth_10.png used on input l
 ine 106.
-(pdftex.def)             Requested size: 187.89914pt x 140.2202pt.
- [3 <./decision_tree_error_graph_depth_1.png> <./decision_tree_error_graph_dept
-h_10.png>]
-<model_complexity_graph.png, id=30, 578.16pt x 431.4519pt>
+(pdftex.def)             Requested size: 211.38832pt x 157.74525pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3 <./example_decision_tree_error_graph_depth_9.png>]
+<model_complexity_graph.png, id=27, 578.16pt x 431.4519pt>
 File: model_complexity_graph.png Graphic file (type png)
 
 <use model_complexity_graph.png>
 Package pdftex.def Info: model_complexity_graph.png used on input line 117.
 (pdftex.def)             Requested size: 231.2599pt x 172.5777pt.
+ [4 <./decision_tree_error_graph_depth_1.png> <./decision_tree_error_graph_dept
+h_10.png> <./model_complexity_graph.png>]
 runsystem(del "report.pyg")...executed.
 
- [4 <./model_complexity_graph.png>] [5]
-(report.aux) ) 
+
+[5] (report.aux) ) 
 Here is how much of TeX's memory you used:
  6025 strings out of 493634
  103626 string characters out of 3134015
@@ -462,23 +467,23 @@ Here is how much of TeX's memory you used:
  9319 multiletter control sequences out of 15000+200000
  8708 words of font info for 31 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 37i,12n,38p,1548b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmbx10.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Predator/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Predato
-r/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C
-:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr10.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Predator/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Predator/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/User
-s/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y10.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmti10.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report.pdf (5 pages, 290961 bytes).
+ 37i,12n,38p,1751b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Predator/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Predator/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Pre
+dator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Predator/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Predator
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/
+Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmti10.pfb><C:/Users/Predator/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on report.pdf (5 pages, 291968 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
